@@ -12,6 +12,7 @@ until ret ~= nil
 
 buttons = {"A", "B", "Down", "Left", "Right", "Select",	"Start", "Up"}
 client.speedmode(5000)
+--client.invisibleemulation(true)
 
 function get_input(x, genomes)
 	local map = {}
