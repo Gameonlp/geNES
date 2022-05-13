@@ -42,7 +42,7 @@ def generate_population(size):
         for j in range(len(buttons)):
             button = buttons[j]
             genomes[button] = []
-            genomes[button].append([10 * random.random(), random.random(), 2 * random.random()])
+            genomes[button].append([5 - 10 * random.random(), 0.5 - random.random(), 1 - 2 * random.random()])
         population.append(("w" + str(generation) + "." + str(current), genomes))
         current += 1
     return population
@@ -82,7 +82,7 @@ def mutate(genomes):
 #            if random.random() < WAVE_LOSS_RATE and new_genomes[1][button]:
 #                del new_genomes[1][button][random.randrange(0, len(new_genomes[1][button]))]
             if random.random() < NEW_WAVE_RATE:
-                new_genomes[1][button].append([100 * random.random(), random.random(), 2 * random.random()])
+                new_genomes[1][button].append([50 - 100 * random.random(), 0.5 - random.random(), 1 - 2 * random.random()])
             new_genomes[1][button].sort(key=lambda x: x[0])
         if new_genomes[1] not in [x[1] for x in population] + [x[1][1] for x in best50]:
             break
@@ -161,7 +161,7 @@ def evaluate_population(population):
             fit_order = fitness_tuples.get()
 
             fitness_map.append(fit_order)
-        time.sleep(1)
+        time.sleep(0.01)
     return fitness_map
 
 def handle_workers():
